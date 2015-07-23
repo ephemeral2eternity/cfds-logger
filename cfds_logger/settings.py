@@ -37,6 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cron',
+    'monitor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -100,3 +102,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# django_cron jobs declared here
+CRON_CLASSES = [
+	"monitor.cron.client_monitor_job",
+	# ...
+]

@@ -1,0 +1,20 @@
+{% if cur_host %}
+<h1>Show all the clients that have left the system by cfds-logger: {{ cur_host }}</h1>
+{% endif %}
+{% if left_client_num %}
+<h2>There are totally {{ left_client_num }} clients left!</h2>
+{% endif %}
+{% if left_clients %}
+<table style="width:90%">
+    <tr>
+	<td>Client Name</td>
+	<td>Detected Leaving Nime</td>
+    </tr>
+    {% for client in clients %}
+    <tr>
+	<td> {{ client.name }} </td>
+	<td> {{ client.left_ts }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}

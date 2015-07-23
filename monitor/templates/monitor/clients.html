@@ -1,0 +1,26 @@
+{% if cur_host %}
+<h1>Show all the clients monitored by the centralized CFDS logger: {{ cur_host }}</h1>
+{% endif %}
+{% if client_num %}
+<h2>There are totally {{ client_num }} clients connected!</h2>
+{% endif %}
+{% if clients %}
+<table style="width:90%">
+    <tr>
+	<td>Client Name</td>
+	<td>Client URL</td>
+	<td>Client Latest Record</td>
+	<td>Last Visited</td>
+    </tr>
+    {% for client in clients %}
+    <tr>
+	<td> {{ client.name }} </td>
+	<td> <a href="http://{{ client.ip }}:8717/">Visiting {{ client.name }}</a></td>
+	<td> <a href="http://{{ client.ip }}:8717/latest">Get {{ client.name }}'s latest record!</a></td>
+	<td> {{ client.last_visit }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No client has connected yet.</p>
+{% endif %}
