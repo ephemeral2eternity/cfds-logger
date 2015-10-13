@@ -1,0 +1,25 @@
+<h1>Show recent error messages reported!</h1>
+{% if msgs %}
+<table style="width:100%">
+    <tr>
+	<td>Reporting Client Name</td>
+	<td>Node Impacted</td>
+	<td>Video ID Impacted</td>
+	<td>Fault Message Content</td>
+	<td>Fault Message Type</td>
+	<td>Reporting Time</td>
+    </tr>
+    {% for msg in msgs %}
+    <tr>
+	<td> {{ msg.client }} </td>
+	<td> {{ msg.node }}</td>
+	<td align="center"> {{ msg.video }}</td>
+	<td> {{ msg.msg }}</td>
+	<td align="center"> {{ msg.msg_type }}</td>
+	<td align="right"> {{ msg.ts }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No error messages have been reported.</p>
+{% endif %}

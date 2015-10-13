@@ -1,0 +1,35 @@
+<h1>Show recent recovery messages reported!</h1>
+{% if rmsgs %}
+<table style="width:100%">
+    <tr>
+	<td>Reporting Client Name</td>
+	<td>Faulty Node</td>
+	<td>Recovery Node Obtained</td>
+	<td>Peer Client Providing Recovery INFO</td>
+	<td>Faulty QoE</td>
+	<td>Expected QoE after Recovery</td>
+	<td>Video ID Impacted</td>
+	<td>Recovery Time Period</td>
+	<td>Fault Message Type</td>
+	<td>Fault Message</td>
+	<td>Reporting Time</td>
+    </tr>
+    {% for rmsg in rmsgs %}
+    <tr>
+	<td> {{ rmsg.client }} </td>
+	<td> {{ rmsg.faulty_node }}</td>
+	<td> {{ rmsg.recovery_node }}</td>
+	<td> {{ rmsg.recovery_peer }}</td>
+	<td align="center"> {{ rmsg.qoe }}</td>
+	<td> {{ rmsg.recovery_qoe }}</td>
+	<td align="center"> {{ rmsg.video }}</td>
+	<td align="center"> {{ rmsg.recovery_time }}</td>
+	<td align="center"> {{ rmsg.msg_type }}</td>
+	<td> {{ rmsg.msg }}</td>
+	<td align="center"> {{ rmsg.ts }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No error messages have been reported.</p>
+{% endif %}

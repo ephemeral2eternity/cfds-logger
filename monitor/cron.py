@@ -7,7 +7,7 @@ class client_monitor_job(CronJobBase):
 	"""
 
 	# Run every 20 minutes
-	run_every = 20
+	run_every = 60
 	schedule = Schedule(run_every_mins=run_every)
 	code = 'monitor.cron.client_monitor_job'
 
